@@ -1,1 +1,1 @@
-# intro-react
+# react-counter
