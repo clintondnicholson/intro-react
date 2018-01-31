@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My React App</title>
+  </head>
+  <body>
+
+    <div id="app"></div>
+    <div id="other"></div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+      <script type="text/babel">
+
+      class Counter extends React.Component {
+              render() {
+                return (
+                  <div>
+                    <img src={this.props.image} alt="Bloc Logo"/>
+                    <h2>Current program: {this.props.label}</h2>
+                    <p>Current Date: {this.props.date.toLocaleDateString()}</p>
+                  </div>
+                );
+              }
+            }
+
+            const info = {
+              date: new Date(),
+              image: 'http://www.thetechviral.com/wp-content/uploads/2017/08/behance-1008x641.jpg',
+            }
+
+            Counter.defaultProps = {
+              label: "Web Developer Track"
+            }
+
+            ReactDOM.render(
+              <Counter
+                date={info.date}
+                image={info.image}/>,document.getElementById('app')
+            );
+
+            class Button extends React.Component {
+              constructor() {
+                super();
+                this.state = {
+                  count: 0,
+                };
+              }
+
+              updateCount() {
+                this.setState((prevState, props) => {
+                  return { count: prevState.count + 1 }
+                });
+              }
+
+              render() {
+                return (<button onClick={() => this.updateCount()}>
+                          Took {this.state.count} Hits
+                        </button>);
+              }
+            }
+
+            ReactDOM.render(
+              <Button
+              />,document.getElementById('other')
+            );
+
+      </script>
+  </body>
+</html>
