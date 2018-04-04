@@ -23,13 +23,13 @@
           }
 
           increment(state) {
-            this.state({
+            this.setState({
               number: this.state.number + 1
             })
           }
 
           decrement(state) {
-            this.state({
+            this.setState({
               number: Math.max(1, this.state.number - 1)
             })
           }
